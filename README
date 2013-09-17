@@ -8,8 +8,9 @@ Usage:
 	$ ./ssh_sync hosts|dns <remote_src_path> <local_dest_path>
 
 Example:
-	$ ./ssh_sync dns /Users/john/homework /Users/john/backup/homework
+	$ ./ssh_sync dns /Users/john/homework /Users/john/backup
 
+	This sync the directory /Users/john/homework into /Users/john/backup/homework
 Diagnostics:
 	If "The host may be down or not accessible at this time." message appears
 	and the remote machine is actually up. If you know the IP address of the
