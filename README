@@ -7,3 +7,11 @@ Usage:
 
 Example:
 	$ ./ssh_sync dns /Users/john/homework /Users/john/backup/homework
+
+Diagnostics:
+	If "The host may be down or not accessible at this time." message appears
+	and the remote machine is actually up. If you know the IP address of the
+	remote machine on the LAN, try the
+	following command:
+		$ ping <ip address>
+	Then execute the script again. The local ARP table should be updated.
