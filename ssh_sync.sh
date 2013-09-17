@@ -1,16 +1,21 @@
 #!/bin/bash
+
+# ----------------------------
+# Set the following variable
+user_home="/Users/shichao"
+# Remote hostname (LAN) and MAC address
+hostname="asc-mbp"
+# User name on the remote host
+username="shichao"
+mac_address="a8:20:66:14:bd:40"
+
+# -----------------------------
+
+
 usage="Usage: ./$0 hosts|dns <remote_src_path> <local_dest_path>"
 if [ "$#" -lt 3 ]; then
 	echo $usage 
 fi
-user_home="/Users/shichao"
-
-# Remote hostname (LAN) and MAC address
-hostname="asc-mbp"
-
-# User name on the remote host
-username="shichao"
-mac_address="a8:20:66:14:bd:40"
 
 # Zone file of BIND server (original file for the symbolic link)
 zone_file="$user_home/Documents/named/$hostname.zone"
