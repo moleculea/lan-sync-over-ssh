@@ -74,7 +74,7 @@ elif [ "$1" == "test" ]; then
 	exit 0
 
 else
-	echo "Invalid argument $1. Must be 'hosts' or 'dns'"
+	echo "Invalid argument $1. Must be 'hosts', 'dns' or 'test'."
 	exit 1
 fi
 
