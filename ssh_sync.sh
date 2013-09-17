@@ -2,17 +2,17 @@
 
 # ----------------------------
 # Set the following variable
-user_home="/Users/shichao"
+user_home="/Users/yourname"
 # Remote hostname (LAN) and MAC address
-hostname="asc-mbp"
+hostname="machine-a"
 # User name on the remote host
-username="shichao"
-mac_address="a8:20:66:14:bd:40"
+username="yourname"
+mac_address="11:11:11:11:11:11"
 
 # -----------------------------
 
 
-usage="Usage: ./$0 hosts|dns <remote_src_path> <local_dest_path>"
+usage="Usage: ./$0 hosts|dns|test <remote_src_path> <local_dest_path>"
 if [ "$#" -lt 3 ]; then
 	echo $usage 
 fi
@@ -24,6 +24,7 @@ zone_file="$user_home/Documents/named/$hostname.zone"
 ip_address=$(arp -a | grep $mac_address | cut -d' ' -f2 | tr -d '()')
 if [ -z "$ip_address" ]; then
 	echo "No IP address of host $hostname with MAC $mac_address on the LAN is detected."
+	echo "The host may be down or not accessible at this time."
 	exit 1
 fi
 sed_cmd="/$hostname/d"
@@ -43,6 +44,12 @@ elif [ "$1" == "dns" ]; then
 
 	# This is equivalent to restart and flush BIND server
 	rndc stop
+
+elif [ "$1" == "test" ]; then
+	mdkir $user_home/tmp
+	echo "Hostname $hostname can be mapped to IP address $ip_address ($mac_address)."
+	echo "Ready to sync."
+	exit 0
 
 else
 	echo "Invalid argument $1. Must be 'hosts' or 'dns'"
