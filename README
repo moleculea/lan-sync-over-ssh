@@ -1,0 +1,9 @@
+LAN Sync over SSH
+
+Sync and backup file from a host on the LAN over SSH
+
+Usage:
+	$ ./ssh_sync hosts|dns <remote_src_path> <local_dest_path>
+
+Example:
+	$ ./ssh_sync dns /Users/john/homework /Users/john/backup/homework
