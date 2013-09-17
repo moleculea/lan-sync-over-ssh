@@ -12,10 +12,15 @@ mac_address="11:11:11:11:11:11"
 # -----------------------------
 
 
-usage="Usage: ./$0 hosts|dns|test <remote_src_path> <local_dest_path>"
+usage="Usage: $0 hosts|dns|test <remote_src_path> <local_dest_path>"
+
 if [ "$#" -lt 3 ]; then
-	echo $usage 
+	if [ "$1" != "test" ]; then
+		echo $usage
+		exit 1
+	fi
 fi
+
 
 # Zone file of BIND server (original file for the symbolic link)
 zone_file="$user_home/Documents/named/$hostname.zone"
@@ -48,6 +53,8 @@ elif [ "$1" == "dns" ]; then
 elif [ "$1" == "test" ]; then
 	mdkir $user_home/tmp
 	echo "Hostname $hostname can be mapped to IP address $ip_address ($mac_address)."
+	echo "Pinging $ip_address..."
+	ping -c 4 $ip_address
 	echo "Ready to sync."
 	exit 0
 
