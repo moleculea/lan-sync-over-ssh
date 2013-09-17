@@ -18,8 +18,11 @@ Diagnostics:
 	and the remote machine is actually up. If you know the IP address of the
 	remote machine on the LAN, try the
 	following command:
+
 		$ ./ssh_sync.sh test <ip address>
 
 		or:
+
 		$ ping <ip address>
+
 	Then execute the script again. The local ARP table should be updated.
