@@ -1,6 +1,8 @@
 LAN Sync over SSH
 
 Sync and backup file from a host on the LAN over SSH
+Setup:
+	For setup of DNS and SSH, see the description website.
 
 Usage:
 	$ ./ssh_sync hosts|dns <remote_src_path> <local_dest_path>
